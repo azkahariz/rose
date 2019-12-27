@@ -7,7 +7,8 @@ CONFIG -= app_bundle
 
 TEMPLATE = app
 
-SOURCES += main.cpp
+SOURCES += \
+    main.cpp
 
 INCLUDEPATH += /home/azkahariz/Downloads/opencv-3.4.4/build/include
 

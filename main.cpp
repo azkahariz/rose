@@ -54,7 +54,7 @@ int main()
 
         imshow("matches.jpg", imMatches);
         cout << "Match: " << matches.size() << endl;
-        waitKey(1000);
+        waitKey(33);
     }
 
 }
