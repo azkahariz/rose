@@ -48,8 +48,8 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../main.cpp 
-OBJECTS       = main.o
+SOURCES       = ../ObjectDetection.cpp 
+OBJECTS       = ObjectDetection.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -104,7 +104,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		../../ObjectDetection.pro  ../main.cpp
+		../../ObjectDetection.pro  ../ObjectDetection.cpp
 QMAKE_TARGET  = ObjectDetection
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = ObjectDetection
@@ -262,7 +262,7 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../ObjectDetection.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -299,8 +299,8 @@ compiler_clean:
 
 ####### Compile
 
-main.o: ../main.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../main.cpp
+ObjectDetection.o: ../ObjectDetection.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ObjectDetection.o ../ObjectDetection.cpp
 
 ####### Install
 
