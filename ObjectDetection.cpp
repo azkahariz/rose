@@ -10,7 +10,7 @@ using namespace std;
 using namespace cv;
 
 const int MAX_FEATURES = 2000;
-const float GOOD_MATCH_PERCENT = 0.01f;
+const float GOOD_MATCH_PERCENT = 0.05f;
 
 int main()
 {
