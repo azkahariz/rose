@@ -18,6 +18,11 @@ using namespace cv;
 
 
 //Variabel2
+// Background Substraction
+Ptr<BackgroundSubtractor> pBackSub;
+
+Mat frame, fgMask;
+
 // Inisialisasi jumlah feature yang ingin didteksi
 const int MAX_FEATURES = 2000;
 

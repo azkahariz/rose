@@ -114,12 +114,16 @@ void pilihTitikKamera()
     titik2.erase(titik2.end());
 }
 
+void BackgroundSubtraction()
+{
+    GaussianBlur(imReg,frame,Size(15,15),0);
+    pBackSub->apply(frame,fgMask);
+}
+
 int main()
 {
-    Ptr<BackgroundSubtractor> pBackSub;
-    pBackSub = createBackgroundSubtractorMOG2();
-    Mat frame, fgMask;
 
+    pBackSub = createBackgroundSubtractorMOG2();
     OpenCamera();
     ReadReference();
     namedWindow("Template", WINDOW_KEEPRATIO);
@@ -143,9 +147,7 @@ int main()
 
         cap >> src;
         warpPerspective(src, imReg, h, imReference.size());
-
-        GaussianBlur(imReg,frame,Size(15,15),0,0);
-        pBackSub->apply(frame,fgMask);
+        BackgroundSubtraction();
         imshow("Process",imReg);
         imshow("FG Mask", fgMask);
         waitKey(33);
