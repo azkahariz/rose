@@ -146,17 +146,6 @@ int main()
 
         GaussianBlur(imReg,frame,Size(15,15),0,0);
         pBackSub->apply(frame,fgMask);
-
-        //get the frame number and write it on the current frame
-        //rectangle(src, cv::Point(10,2), cv::Point(100,20),
-        //          cv::Scalar(255,255,255), -1);
-        //stringstream ss;
-        //ss << cap.get(CAP_PROP_POS_FRAMES);
-        //string frameNumberString = ss.str();
-        //putText(src, frameNumberString.c_str(), cv::Point(15,15),
-        //        FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0,0,0));
-
-        // Show the current frame and the fg masks
         imshow("Process",imReg);
         imshow("FG Mask", fgMask);
         waitKey(33);
