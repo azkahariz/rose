@@ -8,6 +8,7 @@
 #include <opencv2/video.hpp>
 #include <opencv2/videoio.hpp>
 #include <iostream>
+#include <math.h>
 #ifndef VARIABEL
 #define VARIABEL
 
@@ -63,5 +64,6 @@ std::vector<Point2f> points1, points2;
 Mat img;
 // Koordinat
 std::vector<Point2d> titik, titik2;
+
 
 #endif // VARIABEL
