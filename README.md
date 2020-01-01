@@ -7,7 +7,7 @@ Bomb Scoring is a system that functions to determine whether a bomb falls on a t
 - Results and Conclusions.
 
 <h2>Reference</h2>
-In this system I used 4-point correspondence [Hartley] , Hough Transform for circle detection [Yuen90], and Background Subtraction.
+In this system I used 4-point correspondence [Hartley] , Hough Transform for circle detection [Yuen90], and Background Subtraction Mixture of Gaussian 2 (MOG2) [Zivkovic2004, Zivkovic2006].
 
 ><h3>4-Point Correspondence</h3>
 
@@ -32,4 +32,16 @@ Final, I used Hough transform again in the image tranform after remove backgroun
 [Hartley04] R. Hartley and A. Zisserman, Multiple View Geometry in Computer Vision. Cambridge: Cambridge University Press, 2004.
 
 [Yuen90] Yuen, H. K. and Princen, J. and Illingworth, J. and Kittler, J., Comparative study of Hough transform methods for circle finding. Image Vision Comput. 8 1, pp 71–77 (1990).
-[3]
+
+[Zivkovic2004] Zivkovic, Z. (2004). Improved adaptive Gaussian mixture model for background subtraction. In *Pattern Recognition, 2004. ICPR 2004. Proceedings of the 17th International Conference on* (Vol. 2, pp. 28-31). IEEE.
+
+[Zivkovic2006] Zivkovic, Z., and Van Der Heijden, F. (2006). Efficient adaptive density estimation per image pixel for the task of background subtraction. *Pattern recognition letters*, 27(7), 773-780
+
+
+
+
+
+
+
+
+

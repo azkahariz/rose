@@ -128,7 +128,7 @@ int main()
     int jarakX, jarakY, radius;
     double jarak, degree;
     vector<Vec3f> circlesTarget, circlesBomb;
-    pBackSub = createBackgroundSubtractorMOG2();
+    pBackSub = createBackgroundSubtractorMOG2(500, 16, NULL);
     OpenCamera();
     ReadReference();
     namedWindow("Template", WINDOW_KEEPRATIO);
@@ -172,7 +172,7 @@ int main()
         }
 
         // Circles bomb
-        HoughCircles(fgMask, circlesBomb, HOUGH_GRADIENT, 1, fgMask.rows/8, 20, 20, 20, 50);
+        HoughCircles(fgMask, circlesBomb, HOUGH_GRADIENT, 1, fgMask.rows/8, 20, 20, 10, 70);
         cout << "Size circlesBomb : " << circlesBomb.size() << endl;
         for(size_t i=0; i<circlesBomb.size(); i++) {
             Point centerBomb(cvRound(circlesBomb[i][0]), cvRound(circlesBomb[i][1]));
