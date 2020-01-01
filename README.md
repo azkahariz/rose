@@ -8,6 +8,7 @@ Bomb Scoring is a system that functions to determine whether a bomb falls on a t
 
 <h2>Reference</h2>
 In this system I used 4-point correspondence [Hartley] , Hough Transform for circle detection [Yuen90], and Background Subtraction.
+
 ><h3>4-Point Correspondence</h3>
 
 ><h3>Hough Transform</h3>
