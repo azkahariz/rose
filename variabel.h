@@ -12,8 +12,6 @@
 #ifndef VARIABEL
 #define VARIABEL
 
-
-
 using namespace std;
 using namespace cv;
 
@@ -21,23 +19,8 @@ using namespace cv;
 Ptr<BackgroundSubtractor> pBackSub;
 Mat frame, fgMask;
 
-// Inisialisasi jumlah feature yang ingin didteksi
-const int MAX_FEATURES = 2000;
-
-// Inisilaisasi persentase fitur yang ingin diambil
-const float GOOD_MATCH_PERCENT = 0.01f;
-
-// Berfungsi untuk mendeteksi keypoint pada gambar referensi dan video real-time
-std::vector<KeyPoint> keypoints1, keypoints2;
-
-// Deskriptor pada gambar referensi dan video real-time
-Mat descriptors1, descriptors2;
-
 // Berfungsi untuk mencuplik frame pada video real-time
 Mat src;
-
-// Membuat variabel deteksi fitur
-Ptr<Feature2D> orb = ORB::create(MAX_FEATURES);
 
 // Membuat varibael titik korespondensi
 Ptr<DescriptorMatcher> matcher = DescriptorMatcher::create("BruteForce-Hamming");

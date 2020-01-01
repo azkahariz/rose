@@ -39,56 +39,6 @@ void onMouse2(int event, int x, int y, int flags, void* userdata)
     }
 }
 
-void MatchingImage()
-{
-    // Mencuplik gambar
-    cap >> src;
-    // Mengkonversi gambar tercuplik ke hitam putih
-    cvtColor(src, src, CV_BGR2GRAY);
-    // Mendeteksi fitur pada gambar video menggunakan ORB
-    orb -> detectAndCompute(src, Mat(), keypoints1, descriptors1);
-    // Mendeteksi fitur pada gambar referensi menggunakan ORB
-    orb -> detectAndCompute(imReference, Mat(), keypoints2, descriptors2);
-    // Mencari titik korespondensi
-    matcher->match(descriptors1, descriptors2, matches, Mat());
-    // Melakukan sortir titik korespondensi dari yang terbaik
-    // ke yang terburuk
-    std::sort(matches.begin(), matches.end());
-    // Mengeleminasi titik korespondensi sesuai dengan persentase
-    // yang diinginkan
-    const int numGoodMatches = matches.size() * GOOD_MATCH_PERCENT;
-    matches.erase(matches.begin()+numGoodMatches, matches.end());
-}
-
-void tampilkanMatching()
-{
-    MatchingImage();
-    // Menggambar dan menampilkan titik korespondensi
-    drawMatches(src, keypoints1, imReference, keypoints2, matches, imMatches);
-    imshow("matches.jpg", imMatches);
-
-}
-
-void imageAlignment()
-{
-    if(matches.size()>5)
-    {
-        for(size_t i = 0; i < matches.size(); i++){
-            points1.push_back( keypoints1[ matches[i].queryIdx ].pt );
-            points2.push_back( keypoints2[ matches[i].trainIdx ].pt );
-        }
-        // Find homography
-        h = findHomography( points1, points2, RANSAC );
-
-        // Use homography to warp image
-        warpPerspective(src, imReg, h, imReference.size());
-        cout << h << endl;
-        // Tampilkan aligned image
-
-        imshow("aligned image",imReg);
-    }
-}
-
 void pilihTitikReference()
 {
     while(titik.size() < 5)
@@ -122,13 +72,7 @@ void BackgroundSubtraction()
 
 int main()
 {
-    Mat imRegGray;
-    stringstream ss;
-    string JarakText, degreeText;
-    int jarakX, jarakY, radius;
-    double jarak, degree;
-    vector<Vec3f> circlesTarget, circlesBomb;
-    pBackSub = createBackgroundSubtractorMOG2(500, 16, NULL);
+    pBackSub = createBackgroundSubtractorMOG2();
     OpenCamera();
     ReadReference();
     namedWindow("Template", WINDOW_KEEPRATIO);
@@ -149,7 +93,7 @@ int main()
 
     namedWindow("Process",WINDOW_KEEPRATIO);
     namedWindow("FG Mask",WINDOW_KEEPRATIO);
-    // for(;;) proses pencuplikan gambar
+
     for(;;)
     {
 
