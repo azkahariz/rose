@@ -17,8 +17,6 @@
 using namespace std;
 using namespace cv;
 
-
-//Variabel2
 // Background Substraction
 Ptr<BackgroundSubtractor> pBackSub;
 Mat frame, fgMask;
@@ -64,6 +62,13 @@ std::vector<Point2f> points1, points2;
 Mat img;
 // Koordinat
 std::vector<Point2d> titik, titik2;
+
+Mat imRegGray;
+stringstream ss;
+string JarakText, degreeText;
+int jarakX, jarakY, radius;
+double jarak, degree;
+vector<Vec3f> circlesTarget, circlesBomb;
 
 
 #endif // VARIABEL
