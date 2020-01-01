@@ -24,7 +24,10 @@ Second, I used Hough Transform to detect target position and radius.
 Third, I used Background Subtraction for remove a background that is target object. And I want to detect different in the background target object.
 
 Final, I used Hough transform again in the image tranform after remove background Subtraction for detect bomb in the image and measure the radius and angle from the target.
+
 <h2>Discussion</h2>
+In this simulation I used camera PS3 for detection target and bombs. I use a miniature tower as high as 15 centimeters. The distance of the tower to the center of the target is 50 centimeters. In the simulation, approximately 1 centimeter is equal to 1 meter.
+kamera ke pusat target 50 cm
 
 <h2>Results and Conclusions</h2>
 
