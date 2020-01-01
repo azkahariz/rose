@@ -16,6 +16,7 @@ In this system I used 4-point correspondence [Hartley] , Hough Transform for cir
 ><h3>Background Subtraction</h3>
 
 <h2>Methodology</h2>
+
 First, I used 4-point correspondence for choose 4 point in image reference and image camera.
 
 Second, I used Hough Transform to detect target position and radius.
