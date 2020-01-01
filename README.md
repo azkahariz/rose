@@ -36,12 +36,3 @@ Final, I used Hough transform again in the image tranform after remove backgroun
 [Zivkovic2004] Zivkovic, Z. (2004). Improved adaptive Gaussian mixture model for background subtraction. In *Pattern Recognition, 2004. ICPR 2004. Proceedings of the 17th International Conference on* (Vol. 2, pp. 28-31). IEEE.
 
 [Zivkovic2006] Zivkovic, Z., and Van Der Heijden, F. (2006). Efficient adaptive density estimation per image pixel for the task of background subtraction. *Pattern recognition letters*, 27(7), 773-780
-
-
-
-
-
-
-
-
-
