@@ -1,5 +1,6 @@
 #include "variabel.h"
 #define PI 3.14159265
+
 void OpenCamera(){
     // Menyalakan kamera, 0 = Camera laptop, 1 = Camera USB
     cap.open(1);
@@ -15,7 +16,7 @@ void ReadReference()
     string refFilename("/home/azkahariz/QTProject/Rose/gambar/drawing2.jpg");
     cout << "Reading reference image : " << refFilename << endl;
     imReference = imread(refFilename);
-    // Mengkonversi gambar menjadi hitam putih
+    // Mengkonversi gambar referensi menjadi hitam putih
     cvtColor(imReference, imReference, CV_BGR2GRAY);
 }
 
