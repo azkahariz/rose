@@ -3,7 +3,7 @@
 
 void OpenCamera(){
     // Menyalakan kamera, 0 = Camera laptop, 1 = Camera USB
-    cap.open(1);
+    cap.open(0);
     // Cek apakah kamera terbuka
     if(!cap.isOpened()){
         cerr << "ERROR! Unable to open camera \n";
