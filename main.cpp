@@ -6,10 +6,10 @@ void OpenCamera(){
     //cap.open(0);
     // Gunakan file di dalam komputer
     cap.open("/media/azkahariz/Local Disk1/Proyek/Bomb Scoring/Video/dataset_bomb_datar.mp4);
-    // Cek apakah kamera terbuka
-    if(!cap.isOpened()){
-        cerr << "ERROR! Unable to open camera \n";
-    }
+             // Cek apakah kamera terbuka
+             if(!cap.isOpened()){
+                 cerr << "ERROR! Unable to open camera \n";
+             }
 }
 
 void ReadReference()
@@ -107,44 +107,44 @@ int main()
         medianBlur(imRegGray, imRegGray, 3);
         BackgroundSubtraction();
 
-        // Circles target
-        HoughCircles(imRegGray,circlesTarget,HOUGH_GRADIENT, 1, imRegGray.rows/8, 20, 20, 280, 300);
-        circlesTarget.resize(1);
-        cout << "Size circlesTarget: " << circlesTarget.size() << endl;
-        for(size_t i=0; i<circlesTarget.size(); i++) {
-            Point centerTarget(cvRound(circlesTarget[i][0]), cvRound(circlesTarget[i][1]));
-            radius = cvRound(circlesTarget[i][2]);
-            circle(imReg, centerTarget, radius, Scalar(255, 255, 255), 2, 8, 0);
-            circle(imReg, centerTarget, 1, Scalar(0, 0, 255), 3, 8, 0);
-        }
+        //        // Circles target
+        //        HoughCircles(imRegGray,circlesTarget,HOUGH_GRADIENT, 1, imRegGray.rows/8, 20, 20, 280, 300);
+        //        circlesTarget.resize(1);
+        //        cout << "Size circlesTarget: " << circlesTarget.size() << endl;
+        //        for(size_t i=0; i<circlesTarget.size(); i++) {
+        //            Point centerTarget(cvRound(circlesTarget[i][0]), cvRound(circlesTarget[i][1]));
+        //            radius = cvRound(circlesTarget[i][2]);
+        //            circle(imReg, centerTarget, radius, Scalar(255, 255, 255), 2, 8, 0);
+        //            circle(imReg, centerTarget, 1, Scalar(0, 0, 255), 3, 8, 0);
+        //        }
 
-        // Circles bomb
-        HoughCircles(fgMask, circlesBomb, HOUGH_GRADIENT, 1, fgMask.rows/8, 20, 20, 10, 70);
-        cout << "Size circlesBomb : " << circlesBomb.size() << endl;
-        for(size_t i=0; i<circlesBomb.size(); i++) {
-            Point centerBomb(cvRound(circlesBomb[i][0]), cvRound(circlesBomb[i][1]));
-            jarakX = cvRound(circlesBomb[i][0]) - cvRound(circlesTarget[0][0]);
-            jarakX = jarakX*jarakX;
-            jarakY = cvRound(circlesBomb[i][1]) - cvRound(circlesTarget[0][1]);
-            jarakY = jarakY*jarakY;
-            jarak = sqrt(jarakX + jarakY);
-            jarak = jarak * (double)(10/(double)radius);
-            degree = atan((double)jarakY/(double)jarakX) * 180 / PI;
-            int radiusBomb = cvRound(circlesBomb[i][2]);
-            ss << "Radius: " << jarak << " m";
-            JarakText = ss.str();
-            ss.str("");
-            ss << "Sudut: " << degree << "derajat";
-            degreeText = ss.str();
-            ss.str("");
-            putText(imReg, JarakText.c_str(), Point(cvRound(circlesBomb[i][0]), cvRound(circlesBomb[i][1])),
-                    FONT_HERSHEY_SIMPLEX, 0.5 , cv::Scalar(0,0,0));;
-            putText(imReg, degreeText.c_str(), Point(cvRound(circlesBomb[i][0]), cvRound(circlesBomb[i][1])+15),
-                    FONT_HERSHEY_SIMPLEX, 0.5 , cv::Scalar(0,0,0));;
-            JarakText.clear();
-            degreeText.clear();
-            circle(imReg, centerBomb, radiusBomb, Scalar(255, 0, 0), 2, 8, 0);
-        }
+        //        // Circles bomb
+        //        HoughCircles(fgMask, circlesBomb, HOUGH_GRADIENT, 1, fgMask.rows/8, 20, 20, 10, 70);
+        //        cout << "Size circlesBomb : " << circlesBomb.size() << endl;
+        //        for(size_t i=0; i<circlesBomb.size(); i++) {
+        //            Point centerBomb(cvRound(circlesBomb[i][0]), cvRound(circlesBomb[i][1]));
+        //            jarakX = cvRound(circlesBomb[i][0]) - cvRound(circlesTarget[0][0]);
+        //            jarakX = jarakX*jarakX;
+        //            jarakY = cvRound(circlesBomb[i][1]) - cvRound(circlesTarget[0][1]);
+        //            jarakY = jarakY*jarakY;
+        //            jarak = sqrt(jarakX + jarakY);
+        //            jarak = jarak * (double)(10/(double)radius);
+        //            degree = atan((double)jarakY/(double)jarakX) * 180 / PI;
+        //            int radiusBomb = cvRound(circlesBomb[i][2]);
+        //            ss << "Radius: " << jarak << " m";
+        //            JarakText = ss.str();
+        //            ss.str("");
+        //            ss << "Sudut: " << degree << "derajat";
+        //            degreeText = ss.str();
+        //            ss.str("");
+        //            putText(imReg, JarakText.c_str(), Point(cvRound(circlesBomb[i][0]), cvRound(circlesBomb[i][1])),
+        //                    FONT_HERSHEY_SIMPLEX, 0.5 , cv::Scalar(0,0,0));;
+        //            putText(imReg, degreeText.c_str(), Point(cvRound(circlesBomb[i][0]), cvRound(circlesBomb[i][1])+15),
+        //                    FONT_HERSHEY_SIMPLEX, 0.5 , cv::Scalar(0,0,0));;
+        //            JarakText.clear();
+        //            degreeText.clear();
+        //            circle(imReg, centerBomb, radiusBomb, Scalar(255, 0, 0), 2, 8, 0);
+        //        }
 
         imshow("Process",imReg);
         imshow("FG Mask", fgMask);
