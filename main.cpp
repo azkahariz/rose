@@ -5,11 +5,11 @@ void OpenCamera(){
     // Menyalakan kamera, 0 = Camera laptop, 1 = Camera USB
     //cap.open(0);
     // Gunakan file di dalam komputer
-    cap.open("/media/azkahariz/Local Disk1/Proyek/Bomb Scoring/Video/dataset_bomb_datar.mp4);
-             // Cek apakah kamera terbuka
-             if(!cap.isOpened()){
-                 cerr << "ERROR! Unable to open camera \n";
-             }
+    cap.open("/media/azkahariz/Local Disk1/Proyek/Bomb Scoring/Video/dataset_bomb_datar.mp4");
+    // Cek apakah kamera terbuka
+    if(!cap.isOpened()){
+        cerr << "ERROR! Unable to open camera \n";
+    }
 }
 
 void ReadReference()
