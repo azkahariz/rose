@@ -17,7 +17,12 @@ using namespace cv;
 
 // Background Substraction
 Ptr<BackgroundSubtractor> pBackSub;
-Mat frame, fgMask;
+Mat frame, fgMask, fgMask2;
+
+Mat dilatasi;
+
+vector<vector<Point> > contours;
+vector<Vec4i> hierarchy;
 
 // Berfungsi untuk mencuplik frame pada video real-time
 Mat src;
@@ -53,5 +58,6 @@ int jarakX, jarakY, radius;
 double jarak, degree;
 vector<Vec3f> circlesTarget, circlesBomb;
 
+Mat element = getStructuringElement(MORPH_ELLIPSE, Size(3,3));
 
 #endif // VARIABEL
