@@ -3,7 +3,9 @@
 
 void OpenCamera(){
     // Menyalakan kamera, 0 = Camera laptop, 1 = Camera USB
-    cap.open(0);
+    //cap.open(0);
+    // Gunakan file di dalam komputer
+    cap.open("/media/azkahariz/Local Disk1/Proyek/Bomb Scoring/dataset_bomb_datar.mp4");
     // Cek apakah kamera terbuka
     if(!cap.isOpened()){
         cerr << "ERROR! Unable to open camera \n";
@@ -13,7 +15,7 @@ void OpenCamera(){
 void ReadReference()
 {
     // Membaca gambar referensi
-    string refFilename("/home/azkahariz/QTProject/Rose/gambar/drawing2.jpg");
+    string refFilename("/media/azkahariz/Local Disk1/Proyek/Bomb Scoring/Rose/gambar/Reference_2.jpg");
     cout << "Reading reference image : " << refFilename << endl;
     imReference = imread(refFilename);
     // Mengkonversi gambar referensi menjadi hitam putih
